@@ -1,0 +1,17 @@
+{
+    "bundles": [
+        {
+            "name": "symbols",
+            "assets": [
+                {
+                    "alias": "h1",
+                    "src": "/H1.png"
+                },
+                {
+                    "alias": "h2",
+                    "src": "/H2.png"
+                }
+            ]
+        }
+    ]
+}
