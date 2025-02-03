@@ -3,3 +3,38 @@
     padding: 0;
     /* position: absolute; */
 }
+
+/* 
+.winning-symbol {
+    border: 2px solid gold;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.5; }
+} */
+
+
+
+/* 
+{
+    "reels": [
+        { "stoppingPosition": 1, "symbols": ["A", "B", "C"] },
+        { "stoppingPosition": 2, "symbols": ["A", "A", "C"] },
+        { "stoppingPosition": 0, "symbols": ["A", "B", "A"] },
+        { "stoppingPosition": 1, "symbols": ["C", "A", "C"] },
+        { "stoppingPosition": 2, "symbols": ["A", "B", "A"] }
+    ],
+    "winningLines": [
+        {
+            "line": 1,
+            "symbols": ["A", "A", "A"],
+            "positions": [
+                { "reel": 0, "row": 0 },
+                { "reel": 1, "row": 0 },
+                { "reel": 2, "row": 0 }
+            ]
+        }
+    ],
+    "totalWin": 15
+} */

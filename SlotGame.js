@@ -126,6 +126,7 @@ function reelsComplete() {
     running = false;
 }
 
+
 // Listen for animate update.
 app.ticker.add(() => {
     // Update the slots.
@@ -210,34 +211,35 @@ function backout(amount) {
 
 
 const checkWinLines = (reels) => {
-    console.log(reels)
     let totalWin = 0;
     let winningSymbols = [];
 
-    // Check each row for a winning combination
+    // Iterate through each row (horizontal win check)
     for (let row = 0; row < 3; row++) { // Assuming 3 visible rows
         let matchCount = 1;
-        let firstSymbol = reels[0].symbols[row].texture; // First column's symbol
+        let firstSymbol = reels[0].symbols[row].texture; // First symbol in the row
         let currentWinningSymbols = [{ reel: 0, row }];
 
-        for (let col = 1; col < reels.length; col++) {
-            if (reels[col].symbols[row].texture === firstSymbol) {
+        for (let col = 1; col < reels.length; col++) { // Iterate left to right
+            let currentSymbol = reels[col].symbols[row].texture;
+
+            if (currentSymbol === firstSymbol) {
                 matchCount++;
                 currentWinningSymbols.push({ reel: col, row });
             } else {
-                // If match is broken, check if we had a winning sequence
+                // If match breaks and matchCount is at least 3, register the win
                 if (matchCount >= 3) {
                     winningSymbols.push(...currentWinningSymbols);
-                    totalWin += matchCount * 5; // Increase score
+                    totalWin += matchCount * 5;
                 }
-                // Reset tracking for next sequence
+                // Reset for next sequence
                 matchCount = 1;
-                firstSymbol = reels[col].symbols[row].texture;
+                firstSymbol = currentSymbol;
                 currentWinningSymbols = [{ reel: col, row }];
             }
         }
 
-        // Final check if last row had a valid win
+        // Final check for last column
         if (matchCount >= 3) {
             winningSymbols.push(...currentWinningSymbols);
             totalWin += matchCount * 5;
@@ -254,7 +256,7 @@ const checkWinLines = (reels) => {
 const highlightWinningSymbols = (winningSymbols) => {
     winningSymbols.forEach(({ reel, row }) => {
         const symbol = reels[reel].symbols[row];
-        symbol.tint = 0xffd700; // Gold color to highlight the win
+        symbol.tint = 0xffd700; // Gold color for highlighting win
     });
 
     setTimeout(() => {
@@ -263,6 +265,7 @@ const highlightWinningSymbols = (winningSymbols) => {
         });
     }, 2000);
 };
+
 
 
 document.body.appendChild(app.view);

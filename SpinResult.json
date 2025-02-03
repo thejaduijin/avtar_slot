@@ -1,0 +1,70 @@
+{
+    "reels": [
+        {
+            "symbols": [
+                "A",
+                "K",
+                "Q"
+            ],
+            "stoppingPosition": 2
+        },
+        {
+            "symbols": [
+                "A",
+                "J",
+                "Q"
+            ],
+            "stoppingPosition": 1
+        },
+        {
+            "symbols": [
+                "A",
+                "A",
+                "Q"
+            ],
+            "stoppingPosition": 0
+        },
+        {
+            "symbols": [
+                "K",
+                "A",
+                "J"
+            ],
+            "stoppingPosition": 2
+        },
+        {
+            "symbols": [
+                "J",
+                "K",
+                "Q"
+            ],
+            "stoppingPosition": 1
+        }
+    ],
+    "winningLines": [
+        {
+            "line": 1,
+            "symbols": [
+                "A",
+                "A",
+                "A"
+            ],
+            "positions": [
+                {
+                    "reel": 0,
+                    "row": 0
+                },
+                {
+                    "reel": 1,
+                    "row": 0
+                },
+                {
+                    "reel": 2,
+                    "row": 0
+                }
+            ],
+            "payout": 50
+        }
+    ],
+    "totalWin": 50
+}
